@@ -13,7 +13,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/USERNAME/REPO.git',
+                    url: 'https://github.com/soukabadaoui88-sys/Jenkins-CI-CD.git',
                     credentialsId: 'github-token'
             }
         }
@@ -25,6 +25,7 @@ pipeline {
                 call ${VENV_DIR}\\Scripts\\activate
                 python -m pip install --upgrade pip
                 pip install -r requirements.txt
+                python --version
                 """
             }
         }
