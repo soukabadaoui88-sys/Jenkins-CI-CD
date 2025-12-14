@@ -20,13 +20,19 @@ pipeline {
 
         stage('Setup Virtual Environment') {
             steps {
-                bat """
-                python -m venv ${VENV_DIR}
-                call ${VENV_DIR}\\Scripts\\activate
-                python -m pip install --upgrade pip
-                pip install -r requirements.txt
-                python --version
-                """
+                // AJOUT DU CHEMIN PYTHON DANS LE PATH DE CE NOEUD PENDANT LE BUILD
+                withEnv([
+                    'PATH+PYTHON=C:\\Users\\souka\\AppData\\Local\\Programs\\Python\\Python313\\;C:\\Users\\souka\\AppData\\Local\\Programs\\Python\\Python313\\Scripts'
+                ]) {
+                    bat """
+                    echo %PATH%  // Affiche le PATH pour verification
+                    python -m venv ${VENV_DIR}
+                    call ${VENV_DIR}\\Scripts\\activate
+                    python -m pip install --upgrade pip
+                    pip install -r requirements.txt
+                    python --version
+                    """
+                }
             }
         }
 
