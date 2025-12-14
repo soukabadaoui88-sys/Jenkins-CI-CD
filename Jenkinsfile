@@ -67,17 +67,12 @@ pipeline {
     }
 
     post {
-       success {
+      success {
             emailext(
                 to: "soukaina.badaoui@etu.uae.ac.ma", 
                 from: "soukaina.badaoui@etu.uae.ac.ma", 
                 replyTo: "soukaina.badaoui@etu.uae.ac.ma",
                 subject: "✅ SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                
-                // PARAMÈTRES OBLIGATOIRES POUR EMAILEXT (465 + SSL)
-                smtpHost: 'smtp.gmail.com',
-                smtpPort: '465',
-                useSsl: true,
                 
                 mimeType: 'text/html',
                 body: """\
