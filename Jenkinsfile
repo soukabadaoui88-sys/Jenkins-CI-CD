@@ -69,9 +69,9 @@ pipeline {
     post {
         success {
             emailext(
-                to: "EMAIL_TO_PLACEHOLDER",
-                from: "EMAIL_FROM_PLACEHOLDER",
-                replyTo: "EMAIL_REPLY_PLACEHOLDER",
+                to: "soukaina.badaoui@etu.uae.ac.ma", // REMPLACÉ
+                from: "soukaina.badaoui@etu.uae.ac.ma", // REMPLACÉ
+                replyTo: "soukaina.badaoui@etu.uae.ac.ma", // REMPLACÉ
                 subject: "✅ SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 mimeType: 'text/html',
                 body: """\
